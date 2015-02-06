@@ -33,7 +33,7 @@ public class Recursion {
 	    return 0;
 	} else if ( s.charAt(0) == c ) {
 	    return 1 + count(c, s.substring(1));
-	} else if ( s.charAt(0) != c ) {
+	} else {
 	    return count(c, s.substring(1));
 	}
     }
