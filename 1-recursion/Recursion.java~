@@ -11,7 +11,9 @@ public class Recursion {
     }
 
     public int fib( int n ) {
-	if ( n <= 1) {
+	if ( n == 0 ) {
+	    return 1;
+	} else if ( n == 1 ) {
 	    return 1;
 	} else {
 	    return fib( n - 1 ) + fib( n - 2 );
@@ -27,11 +29,11 @@ public class Recursion {
     }
     
     public int count( char c, String s ) {
-	if ( s == "" ) {
+	if ( s == null ) {
 	    return 0;
-	} else if ( s.charAt(0) == c && s != "" ) {
+	} else if ( s.charAt(0) == c ) {
 	    return 1 + count(c, s.substring(1));
-	} else if ( s.charAt(0) != c && s != "" ) {
+	} else {
 	    return count(c, s.substring(1));
 	}
     }
