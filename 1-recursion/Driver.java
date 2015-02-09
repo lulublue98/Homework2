@@ -4,7 +4,7 @@ public class Driver {
 	
 	Recursion R = new Recursion();
 	int a = R.fib(10);
-	//int b = R.lens("hello");
+	int b = R.lens("hello");
 	int c = R.count('l', "hello");
 	System.out.println(c);
 

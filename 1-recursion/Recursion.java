@@ -17,7 +17,7 @@ public class Recursion {
 	    return fib( n - 1 ) + fib( n - 2 );
 	}
     }
-
+    
     public int lens( String s ) {
 	if ( s == null ) {
 	    return 0;
@@ -29,11 +29,12 @@ public class Recursion {
     public int count( char c, String s ) {
 	if ( s == "" ) {
 	    return 0;
-	} else if ( s.charAt(0) == c && s != "" ) {
+	} else if ( s.charAt(0) == c ) {
 	    return 1 + count(c, s.substring(1));
-	} else if ( s.charAt(0) != c && s != "" ) {
+	} else if ( s.charAt(0) != c ) {
 	    return count(c, s.substring(1));
 	}
+	return 12345;
     }
 
 }
