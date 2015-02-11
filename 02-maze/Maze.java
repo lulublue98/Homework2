@@ -22,8 +22,8 @@ public class Maze {
     }
 
     public Maze() {
-	maxX=59;
-	maxY=23;
+	maxX=50;
+	maxY=25;
 	board = new char[maxX][maxY];
 	try {
 	    Scanner sc = new Scanner(new File("maze.dat"));
@@ -58,6 +58,7 @@ public class Maze {
 	}
 	if (board[x][y] == end) {
 	    System.out.println(this);
+	    System.out.println("YOU WIN!");
 	    System.exit(0);
 
 	}
@@ -74,7 +75,6 @@ public class Maze {
     public static void main(String[] args){
 	Maze m = new Maze();
 	System.out.println(m);
-	m.solve(1,1
-);
+	m.solve(1,1);
     }
 }
