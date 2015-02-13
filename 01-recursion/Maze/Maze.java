@@ -17,8 +17,7 @@ public class Maze {
     public void delay(int n) {
 	try {
 	    Thread.sleep(n); 
-	} catch( Exception e ) {
-	}
+	} catch( Exception e ) {}
     }
 
     public Maze() {
