@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Knights{
 
-    int[][] board;
+    char[][] board;
     int maxX;
     int maxY;
 
@@ -16,10 +16,10 @@ public class Knights{
     public Knights(int size) {
 	maxX=size;
 	maxY=size;
-	board = new int[maxX][maxY];
+	board = new char[maxX][maxY];
         for (int a=0;a<maxX;a++) {
 	    for (int b=0;b<maxY;b++) {
-		board[a][b] = 0;
+		board[a][b] = '.';
 	    }
 	}
     }
@@ -27,8 +27,8 @@ public class Knights{
     public void printBoard() {
 	for (int y=0;y<maxY;y++) {
 	    for (int x=0;x<maxX;x++) {
-		int i = board[x][y];
-		System.out.printf("%2d",i);
+		char i = board[x][y];
+		System.out.printf("%2c",i);
 	    }
 	    System.out.printf("%n");
 	}	
