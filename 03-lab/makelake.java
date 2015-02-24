@@ -6,11 +6,14 @@ public class makelake {
     int[][] pasture;
     int maxX, maxY;
     int[] data;
+    int elevation, moves;
 
     public makelake(int R, int C, int E, int N) {
 	maxX = C;
 	maxY = R;
 	pasture = new int[maxY][maxX];
+	elevation = E;
+	moves = N;
     }
     
     public String toString() {
@@ -38,6 +41,17 @@ public class makelake {
 	}
     }
 
+    public int calculate() {
+	int counter = 0;
+	for (int i=0; i<pasture.length; i++) {
+	    for (int i2=0; i2<pasture[0].length; i2++) {
+		if (pasture[i][i2]<0) {
+		    counter += pasture[i][i2]*6*6*12*12;}
+	    }
+	}
+	return counter;
+    }
+
     public static void main( String[] args ) {
 	makelake M = new makelake(4, 6, 22, 2);
 	int[] data = { 28, 25, 20, 32, 34, 36,
@@ -46,5 +60,7 @@ public class makelake {
 		       20, 20, 14, 14, 20, 20 };
 	M.setData(data);
 	System.out.println(M);
+	int x = M.calculate();
+	System.out.println(x);
     }
 }
