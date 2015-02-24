@@ -42,7 +42,7 @@ public class makelake {
     }
 
     public void stompEvent( int ycor, int xcor, int depth ) {
-	
+
     }
 
     public int calculate() {
@@ -64,6 +64,8 @@ public class makelake {
 		       20, 20, 14, 14, 20, 20 };
 	M.setData(data);
 	System.out.println(M);
+	M.stompEvent(1, 4, 4);
+	M.stompEvent(1, 1, 10);
 	int x = M.calculate();
 	System.out.println(x);
     }
