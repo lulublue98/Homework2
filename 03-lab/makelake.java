@@ -41,6 +41,10 @@ public class makelake {
 	}
     }
 
+    public void stompEvent( int ycor, int xcor, int depth ) {
+	
+    }
+
     public int calculate() {
 	int counter = 0;
 	for (int i=0; i<pasture.length; i++) {
