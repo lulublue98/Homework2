@@ -59,7 +59,6 @@ public class Maze {
 	    System.out.println(this);
 	    System.out.println("YOU WIN!");
 	    System.exit(0);
-
 	}
 	delay(100);
 	System.out.println(this);
