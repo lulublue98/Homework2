@@ -5,6 +5,7 @@ public class Knights{
 
     String[][] board;
     int maxX, maxY;
+    int lastX, lastY;
     int numMoves = 0;
     int totMoves;
     final static String Knight = "K";
@@ -33,7 +34,7 @@ public class Knights{
 	for (int y=0;y<maxY;y++) {
 	    for (int x=0;x<maxX;x++) {
 		String i = board[x][y];
-		System.out.printf("%2s",i);
+		System.out.printf("%3s",i);
 	    }
 	    System.out.printf("%n");
 	}	
@@ -42,7 +43,7 @@ public class Knights{
     public boolean check( int x, int y ) {
 	int a = x;
 	int b = y;
-	if ( a >= maxX || b >= maxY || a <= 0 || b <= 0 ) {
+	if ( a >= maxX || b >= maxY || a < 0 || b < 0 ) {
 	    return false;
 	} else if ( board[a][b] == spot ) {
 	    return true;
@@ -61,24 +62,22 @@ public class Knights{
 	    System.exit(0);
 	}
 	delay(200);
-	printBoard();
+	board[lastX,lastY] = "" + numMoves;
 	board[x][y] = Knight;
-	numMoves = numMoves + 1;
-	solve(1,2);
-	solve(-1,2);
-	solve(1,-2);
-	solve(-1,-2);
-	solve(2,1);
-	solve(-2,1);
-	solve(2,-1);
-	solve(-2,-1);
-	return;
+	printBoard();
+	solve(x+1,y+2);
+	solve(x-1,y+2);
+	solve(x+1,y-2);
+	solve(x-1,y-2);
+	solve(x+2,y+1);
+	solve(x-2,y+1);
+	solve(x+2,y-1);
+	solve(x-2,y-1);
     }
 
     public static void main( String[] args ) {
 	Knights k  = new Knights(5);
-	k.printBoard();
-	k.solve(2,2);
+	k.solve(1,1);
     }
     
 }
