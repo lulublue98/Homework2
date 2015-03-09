@@ -3,21 +3,21 @@ import java.io.*;
 
 public class Selection {
 
-    public int select( int k, int[] A, int L, int H ) {
-	int pivot = A[L];
-	int[] temp == new int[A.length-1];
-	temp[H] = pivot;
-	for (int i=0;i<A.length;i++) {
+    public int split( int[] a, int l, int h ) {
+	int temp;
+	int pi = 1;
+	int pivot = a[pi];
+	int wall = 1;
+	for (int i=0;i<a.length;i++) {
 	    if ( A[i] > pivot ) {
-		temp[H] = A[i];
-		H = H - 1;
-	    } else {
-		temp[L] = A[i];
-		L = L + 1;
+		temp = a[i];
+		a[i] = a[wall];
+		a[wall] = temp;
+		wall++;
 	    }
 	}
-	if ( k != ) {
-	    select( k, temp, 0, pivot );
+	if ( temp[k] == pivot ) {
+	    return temp[k];
 	}
 	return temp[k];
     }
