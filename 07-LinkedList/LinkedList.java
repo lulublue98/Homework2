@@ -1,9 +1,11 @@
 public class LinkedList {
 
-    private Node temp = null;
+    private Node n = null;
     
-    public void add(Node n) {
-	temp = new Node(l);
+    public void add(Node s) {
+	Node tmp = new Node(s);
+	tmp.setNext(n);
+	n = tmp;
     }
 
     public String toString() {
