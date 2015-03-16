@@ -7,5 +7,7 @@ public class Driver {
 	    l.add(""+i);
 	}
 	System.out.println(l);
+	l.insert(2,"5");
+	System.out.println(l);
     }
 }
