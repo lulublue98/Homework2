@@ -32,16 +32,20 @@ public class LList {
 	Node tmp = new Node(s);
 	tmp.setNext(link);
 	link = tmp;
+	dummy.setNext(link);
 	length = length + 1;
     }
 
     public void add( int n, String s ) {
-	Node tmp = link;
-	for (int i=0;i<n-1;i++) {
+	Node tmp = dummy;
+	while ( n-1 > 0 ) {
 	    tmp = tmp.getNext();
+	    n--;
 	}
 	Node node = new Node(s);
 	node.setNext(tmp.getNext());
+	Node nd = tmp.getNext();
+	nd = node;
 	tmp.setNext(node);
 	length = length + 1;
     }
