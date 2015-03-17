@@ -1,10 +1,10 @@
-public class LList2 {
+public class LList {
 
     private Node link = null;
     private Node dummy;
     private int length;
 
-    public LList2() {
+    public LList() {
 	dummy = new Node("");
 	dummy.setNext(link);
 	length = 0;
