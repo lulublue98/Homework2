@@ -1,6 +1,6 @@
 public class Driver {
     public static void main(String[] args) {
-	LList l = new LList();
+	LList2 l = new LList2();
 	l.add("hello");
 	l.add("world");
 	for (int i=0;i<5;i++) {
