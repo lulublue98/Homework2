@@ -44,8 +44,6 @@ public class LList {
 	}
 	Node node = new Node(s);
 	node.setNext(tmp.getNext());
-	Node nd = tmp.getNext();
-	nd = node;
 	tmp.setNext(node);
 	length = length + 1;
     }
