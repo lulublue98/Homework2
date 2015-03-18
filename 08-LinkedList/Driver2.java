@@ -10,7 +10,9 @@ public class Driver2 {
 	for (int i=0;i<1000;i++) {
 	    l.add(r.nextInt(100));
 	}
+	System.out.println(l);
 	l.remove( 50 );
+	System.out.println(l);
 
     }
 
