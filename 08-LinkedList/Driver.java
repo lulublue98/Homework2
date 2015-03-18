@@ -7,9 +7,13 @@ public class Driver {
 	    l.add(""+i);
 	}
 	System.out.println(l);
-	System.out.println(l.get(3));
-	l.add(0,"5");
+	System.out.println("length: " + l.getLength());
+	System.out.println("index 3: " + l.get(3));
+	l.remove(3);
 	System.out.println(l);
-	System.out.println(l.getLength());
+	System.out.println("length: " + l.getLength());
+	l.add(3,"5");
+	System.out.println(l);
+	System.out.println("length: " + l.getLength());
     }
 }

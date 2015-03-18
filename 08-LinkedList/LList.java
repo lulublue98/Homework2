@@ -5,7 +5,7 @@ public class LList {
     private int length;
 
     public LList() {
-	dummy = new Node("");
+	dummy = new Node();
 	dummy.setNext(link);
 	length = 0;
     }
@@ -28,7 +28,7 @@ public class LList {
 	return tmp;
     }
 
-    public void add( String s ) {
+    public void add( int s ) {
 	Node tmp = new Node(s);
 	tmp.setNext(link);
 	link = tmp;
@@ -36,7 +36,7 @@ public class LList {
 	length = length + 1;
     }
 
-    public void add( int n, String s ) {
+    public void add( int n, int s ) {
 	Node tmp = dummy;
 	while ( n-1 > 0 ) {
 	    tmp = tmp.getNext();
@@ -48,6 +48,38 @@ public class LList {
 	length = length + 1;
     }
 
+    public String removeNodeAt( int n ) {
+	String s;
+	if ( n < 0 || n > length ) {
+	    s = "index too large";
+	    return s;
+	}
+	Node tmp = link;
+	for (int i=0;i<n-1;i++) {
+	    tmp = tmp.getNext();
+	}
+	s = "" + tmp.getNext().getData();
+	tmp.setNext(tmp.getNext().getNext());
+	length = length - 1;
+	return s;
+    }
+
+    public boolean remove( int n ) {
+	Node tmp = link;
+	boolean b = false;
+        while ( b == false && tmp.getNext() != null ) {
+	    if ( tmp.getNext().getData() == n ) {
+		b = true;
+	    } else {
+		tmp = tmp.getNext();
+	    }
+	}
+	if ( b = true ) {
+	    tmp.setNext(tmp.getNext().getNext());
+	}
+	return b;
+    }
+    
     public int getLength() {
 	return length;
     }

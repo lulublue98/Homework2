@@ -1,20 +1,16 @@
 public class Node {
 
-    private int data;
+    private String data;
     private Node next;
 
-    public Node() {
-	next = null;
-    }
-
-    public Node(int s) {
+    public Node(String s) {
 	data = s;
 	next = null;
     }
-    public void setData(int s) {
+    public void setData(String s) {
 	data = s;
     }
-    public int getData() {
+    public String getData() {
 	return data;
     }
     public void setNext(Node n) {
@@ -24,7 +20,7 @@ public class Node {
 	return next;
     }
     public String toString() {
-	return "" + data;
+	return data;
     }
 
 }
