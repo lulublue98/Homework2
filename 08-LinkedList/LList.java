@@ -28,6 +28,11 @@ public class LList {
 	return tmp.getData();
     }
 
+    public LLIT getLLIT() {
+	LLIT i = new LLIT(link.getNext());
+	return i;
+    }
+
     public void add( int s ) {
 	Node tmp = new Node(s);
 	tmp.setNext(link);
@@ -65,17 +70,19 @@ public class LList {
     }
 
     public boolean remove( int n ) {
-	Node tmp = link;
+	Node t1 = link.getNext();
+	Node t2 = link; 
 	boolean b = false;
-        while ( b == false && tmp.getNext() != null ) {
-	    if ( tmp.getNext().getData() == n ) {
+        while ( b == false && t1.getNext() != null ) {
+	    if ( t1.getData() == n ) {
 		b = true;
 	    } else {
-		tmp = tmp.getNext();
+		t2 = t1;
+		t1 = t1.getNext();
 	    }
 	}
 	if ( b = true ) {
-	    tmp.setNext(tmp.getNext().getNext());
+	    t2.setNext(t1.getNext());
 	}
 	return b;
     }
