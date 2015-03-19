@@ -20,12 +20,12 @@ public class LList {
 	return s;
     }
 
-    public Node get( int n ) {
+    public int get( int n ) {
 	Node tmp = link;
 	for (int i=0;i<n;i++) {
 	    tmp = tmp.getNext();
 	}
-	return tmp;
+	return tmp.getData();
     }
 
     public void add( int s ) {
