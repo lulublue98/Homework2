@@ -16,7 +16,7 @@ public class Node<E> {
 	prev = null;
     }
 
-    public Node( Node p, Node n,  E s ) {
+    public Node( Node<E> p, Node<E> n,  E s ) {
 	data = s;
 	next = n;
 	prev = p;
@@ -32,6 +32,14 @@ public class Node<E> {
 
     public void setNext( Node<E> n ) {
 	next = n;
+    }
+
+    public void setPrev( Node<E> n ) {
+	prev = n;
+    }
+
+    public Node<E> getPrev(){
+	return prev;
     }
 
     public Node<E> getNext() {

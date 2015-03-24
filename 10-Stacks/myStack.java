@@ -1,43 +1,64 @@
 public class myStack<E> {
 
-    private Node top;
-    private Node bottom;
+    private Node<E> top;
+    private Node<E> dummy;
 
     public myStack() {
-	bottom = null;
 	top = null;
+	dummy = new Node<E>();
+	dummy.setNext(top);
+	top.setPrev(dummy);
     }
 
-    public myStack( Node b ) {
-	bottom = b;
+    public myStack( Node<E> b ) {
 	top = b;
+	dummy = new Node<E>();
+	dummy.setNext(top);
+	top.setPrev(dummy);
     }
 
     public void push( E data ) {
-	Node n = new Node(top, null, data);
-        top.setNext(n);
-	top = n;
+	if ( top == null ) {
+	    top = new Node<E>(dummy, null, data);
+	} else {
+	    Node<E> n = new Node<E>(top, null, data);
+	    top.setNext(n);
+	    n.setPrev(top);
+	    top = n;
+	}
     }
 
     public E pop() {
-	if (bottom=null){
-	    return top;
+	if (top==null){
+	    return top.getData();
 	}
-        Node tmp = top;
+        Node<E> tmp = top;
 	top.getPrev().setNext(null);
-	return tmp;
+	top = top.getPrev();
+	return tmp.getData();
     }
 
     public boolean empty() {
-	if (bottom=null){
+	if (top==dummy){
 	    return true;
 	}
-	else 
+	else {
 	    return false;
+	}
     }
 
     public E top() {
 	return top.getData();
+    }
+
+    public String toString() {			
+	String s = "";
+	Node<E> tmp = top;
+	while( tmp.getData() != null ) {
+	    s = s + tmp.getData() + " , ";
+	    tmp = tmp.getPrev();
+	}
+	return s;
     }
 
 }
