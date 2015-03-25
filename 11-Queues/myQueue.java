@@ -1,8 +1,11 @@
 public class myQueue<E>{
 
-    // You decide how the node(s) are declared
+    private Node<E> front;
+    private Node<E> back;
 
-    // make whatever constructor(s) you need
+    public myQueue() {
+
+    }
 
     public void enqueue(E data){
         // add something to the tail/last
@@ -13,7 +16,7 @@ public class myQueue<E>{
     }
 
     public boolean empty(){
-
+	
     }
 
     public E head() {
