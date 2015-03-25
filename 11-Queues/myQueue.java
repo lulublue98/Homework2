@@ -10,7 +10,7 @@ public class myQueue<E> {
 	back.setPrev(front);
     }
 
-    public void enqueue(E data){
+    public void enqueue(E data) {
         if ( empty() ) {
 	    front = new Node<E>(data);
 	    front.setNext(back);
