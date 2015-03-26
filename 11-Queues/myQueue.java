@@ -6,13 +6,14 @@ public class myQueue<E> {
     public myQueue() {
 	front = null;
 	back = null;
-	front.setNext(back);
-	back.setPrev(front);
     }
 
     public void enqueue(E data) {
         if ( empty() ) {
 	    front = new Node<E>(data);
+	    front.setNext(back);
+	} else if ( front.getNext() == null ) {
+	    back = new Node<E>(data);
 	    front.setNext(back);
 	    back.setPrev(front);
 	} else {
@@ -26,6 +27,11 @@ public class myQueue<E> {
     public E dequeue() { 				
 	if ( empty() ) {
 	    return null;
+	} else if ( front.getNext() == back ) {
+	    E tmp = front.getData();
+	    front = front.getNext();
+	    back = null;
+	    return tmp;
 	}
         E tmp = front.getData();
 	front = front.getNext();
@@ -37,7 +43,17 @@ public class myQueue<E> {
     }
 
     public E head() {
+	if ( empty() ) {
+	    return null;
+	}
 	return front.getData();
+    }
+
+    public E tail() {
+	if ( back == null ) {
+	    return null;
+	}
+	return back.getData();
     }
 
     public String toString() {
