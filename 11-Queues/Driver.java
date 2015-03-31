@@ -8,16 +8,16 @@ public class Driver {
 	Q.enqueue(3);
 	Q.enqueue(4);
 	Q.enqueue(5);	
-	System.out.println(Q);
+	System.out.println("Queue: " + Q);
 	System.out.println("dequeue: " + Q.dequeue());
-	System.out.println(Q);
+	System.out.println("Queue: " + Q);
 	System.out.println("empty: " + Q.empty());
-	System.out.println(Q);
 	System.out.println("head: " + Q.head());
 	System.out.println("dequeue: " + Q.dequeue());
 	System.out.println("dequeue: " + Q.dequeue());
 	System.out.println("dequeue: " + Q.dequeue());
 	System.out.println("dequeue: " + Q.dequeue());
+	System.out.println("Queue: " + Q);
 	System.out.println("empty: " + Q.empty());
 	System.out.println("head: " + Q.head());
 	System.out.println("tail: " + Q.tail());
@@ -29,11 +29,10 @@ public class Driver {
 	Q.enqueue(3);
 	Q.enqueue(4);
 	Q.enqueue(5);	
-	System.out.println(Q);
+	System.out.println("Queue: " + Q);
 	System.out.println("dequeue: " + Q.dequeue());
-	System.out.println(Q);
+	System.out.println("Queue: " + Q);
 	System.out.println("empty: " + Q.empty());
-	System.out.println(Q);
 
     }
 

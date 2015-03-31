@@ -52,12 +52,13 @@ public class myStack<E> {
     }
 
     public String toString() {			
-	String s = "";
+	String s = "\n";
 	Node<E> tmp = top;
 	while( tmp.getData() != null ) {
-	    s = s + tmp.getData() + " , ";
+	    s = s + tmp.getData() + "\n";
 	    tmp = tmp.getPrev();
 	}
+	s = s + "_\n";
 	return s;
     }
 
