@@ -8,12 +8,14 @@ public class Maze {
     int maxY;
 
     private Frontier F;
+    private cors current;
 
     private char path = ' ';
     private char wall = 'E';
     private char me = 'L';
     private char end = '$';
-    private char visited = '.';
+    private char route = '.';
+    private char visited = '_';
     private boolean solved = false;
 
     public void delay(int n) {
@@ -23,7 +25,7 @@ public class Maze {
     }
 
     public Maze() {
-	F = new Frontier();
+	F = new Frontier();	
 	maxX=50;
 	maxY=25;
 	board = new char[maxX][maxY];
@@ -53,8 +55,12 @@ public class Maze {
     }
 
     public void solve( int x, int y ) {
+	cors c = new cors(x,y);
+	current = c;
 	while ( solved == false ) {
-	    
+	    if ( board[current.getX()][current.getY()] == end ) {
+		solved = true;
+	    }
 	}
     }
 
