@@ -60,6 +60,8 @@ public class Maze {
 	while ( solved == false ) {
 	    if ( board[current.getX()][current.getY()] == end ) {
 		solved = true;
+	    } else {
+
 	    }
 	}
     }
