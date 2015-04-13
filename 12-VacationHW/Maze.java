@@ -15,7 +15,7 @@ public class Maze {
     private char me = 'L';
     private char end = '$';
     private char route = '.';
-    private char visited = 'O';
+    private char visited = '_';
     private boolean solved = false;
 
     public void delay(int n) {
@@ -60,26 +60,18 @@ public class Maze {
 	while ( solved == false ) {
 	    if ( board[current.getX()][current.getY()] == end ) {
 		solved = true;
+	    } else if ( board[current.getX()][current.getY()] == path ) {
+		board[current.getX()][current.getY()] = visited;
+		F.enqueue(current.getX()+1,current.getY());
+		F.enqueue(current.getX()-1,current.getY());
+		F.enqueue(current.getX(),current.getY()+1);
+		F.enqueue(current.getX(),current.getY()-1);
 	    }
-	    board[current.getX()][current.getY()] = visited;
 	    System.out.println(this);
-	    delay(20);
-	    if ( board[current.getX()+1][current.getY()] != wall ) {
-		F.enqueue(current.getX()+1,current.getY());
-	    }
-	    if ( board[current.getX()-1][current.getY()] != wall ) {
-		F.enqueue(current.getX()+1,current.getY());
-	    }
-	    if ( board[current.getX()][current.getY()+1] != wall ) {
-		F.enqueue(current.getX()+1,current.getY());
-	    }
-	    if ( board[current.getX()][current.getY()-1] != wall ) {
-		F.enqueue(current.getX()+1,current.getY());
-	    }
+	    delay(10);
 	    current = F.dequeue();
 	}
     }
-		   
 
     public static void main( String[] args ) {
 	Maze m = new Maze();
