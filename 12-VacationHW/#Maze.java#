@@ -73,7 +73,7 @@ public class Maze {
 	    if ( board[current.getX()][current.getY()+1] != wall ) {
 		F.enqueue(current.getX()+1,current.getY());
 	    }
-	    if ( board[current.getX()][current.getY()-1] != wall ) {
+	    if ( board[current.getX()][current.getY()-1] !=  ) {
 		F.enqueue(current.getX()+1,current.getY());
 	    }
 	    current = F.dequeue();
