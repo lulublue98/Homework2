@@ -9,7 +9,6 @@ public class Maze {
 
     private Frontier F;
     private cors current;
-
     private char path = ' ';
     private char wall = 'E';
     private char me = 'L';
@@ -20,12 +19,12 @@ public class Maze {
 
     public void delay(int n) {
 	try {
-	    Thread.sleep(n); 
+	    Thread.sleep(n);
 	} catch( Exception e ) {}
     }
 
     public Maze() {
-	F = new Frontier();	
+	F = new Frontier();
 	maxX=50;
 	maxY=25;
 	board = new char[maxX][maxY];
@@ -78,5 +77,4 @@ public class Maze {
 	System.out.println(m);
 	m.solve(10,12);
     }
-
 }

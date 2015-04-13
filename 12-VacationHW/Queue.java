@@ -9,7 +9,7 @@ public class Queue<E> {
     }
 
     public void enqueue(E data) {
-        if ( empty() ) {
+	if ( empty() ) {
 	    front = new Node<E>(data);
 	    front.setNext(back);
 	} else if ( front.getNext() == null ) {
@@ -24,7 +24,7 @@ public class Queue<E> {
 	}
     }
 
-    public E dequeue() { 				
+    public E dequeue() {
 	if ( empty() ) {
 	    return null;
 	} else if ( front.getNext() == back ) {
@@ -33,12 +33,12 @@ public class Queue<E> {
 	    back = null;
 	    return tmp;
 	}
-        E tmp = front.getData();
+	E tmp = front.getData();
 	front = front.getNext();
 	return tmp;
     }
 
-    public boolean empty() { 
+    public boolean empty() {
 	return front == null;
     }
 
