@@ -1,19 +1,19 @@
 public class cors {
 
-    private int x;
-    private int y;
+    private int xcor;
+    private int ycor;
 
-    public cors( int xcor, int ycor ) {
-	x = xcor;
-	y = ycor;
+    public cors( int x, int y ) {
+	xcor = x;
+	ycor = y;
     }
 
     public int getX() {
-	return x;
+	return xcor;
     }
 
     public int getY() {
-	return y;
+	return ycor;
     }
 
 }

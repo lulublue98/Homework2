@@ -9,6 +9,7 @@ public class Maze {
 
     private Frontier F;
     private cors current;
+
     private char path = ' ';
     private char wall = 'E';
     private char me = 'L';
@@ -25,8 +26,8 @@ public class Maze {
 
     public Maze() {
 	F = new Frontier();
-	maxX=50;
-	maxY=25;
+	maxX=52;
+	maxY=27;
 	board = new char[maxX][maxY];
 	try {
 	    Scanner sc = new Scanner(new File("maze.dat"));
@@ -77,4 +78,5 @@ public class Maze {
 	System.out.println(m);
 	m.solve(10,12);
     }
+    
 }
