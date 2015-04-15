@@ -9,6 +9,7 @@ public class Maze {
 
     private Frontier F;
     private cors current;
+    private Node<cors> place;
 
     private char path = ' ';
     private char wall = 'E';
@@ -69,7 +70,13 @@ public class Maze {
 	    }
 	    System.out.println(this);
 	    delay(10);
-	    current = F.dequeue();
+	    place = F.dequeue();
+	    current = place.getData();
+	}
+	for (Node<cors> p = place.getPrev(); p != null ; p = p.getPrev()){
+	    board[p.getData().getX()][p.getdata().getY()] = route;
+	    delay(100);
+	    System.out.println(this);
 	}
     }
 

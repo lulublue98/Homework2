@@ -24,16 +24,16 @@ public class Queue<E> {
 	}
     }
 
-    public E dequeue() {
+    public Node<E> dequeue() {
 	if ( empty() ) {
 	    return null;
 	} else if ( front.getNext() == back ) {
-	    E tmp = front.getData();
+	    Node<E> tmp = front;
 	    front = front.getNext();
 	    back = null;
 	    return tmp;
 	}
-	E tmp = front.getData();
+	Node tmp = front;
 	front = front.getNext();
 	return tmp;
     }

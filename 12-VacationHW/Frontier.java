@@ -15,9 +15,8 @@ public class Frontier {
 	Q.enqueue( data );
     }
 
-    public cors dequeue() {
-	cors data = Q.dequeue();
-	return data;
+    public Node<cors> dequeue() {
+	return Q.dequeue();
     }
 
     public cors front() {
