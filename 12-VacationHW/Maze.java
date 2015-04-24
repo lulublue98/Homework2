@@ -73,17 +73,20 @@ public class Maze {
 	    place = F.dequeue();
 	    current = place.getData();
 	}
+	// broken code
+	/*
 	for (Node<cors> p = place.getPrev(); p != null ; p = p.getPrev()){
-	    board[p.getData().getX()][p.getdata().getY()] = route;
-	    delay(100);
+	    board[p.getData().getX()][p.getData().getY()] = route;
+	    delay(10);
 	    System.out.println(this);
 	}
+	*/
     }
 
     public static void main( String[] args ) {
 	Maze m = new Maze();
 	System.out.println(m);
-	m.solve(10,12);
+	m.solve(2,2);
     }
     
 }
