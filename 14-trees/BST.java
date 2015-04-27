@@ -28,36 +28,56 @@ public class BST {
 	}
     }
 
-    public Node search( int i ) {
-	Node tmp = root;
-	while ( tmp.isLeaf() == false ) {
-	    if ( tmp.getData() == i ) {
-		return tmp;
-	    } else if ( i > tmp.getData() ) {
-		if ( tmp.getRight() == null ) {
-		    return null;
-		} else {
-		    tmp = tmp.getRight();
-		}
+    public Node search( int i, Node t ) {
+	if ( t == null || t.getData() == i ) {
+	    return t;
+	} else if ( t.getData() < i ) {
+	    return search( i, t.getRight() );
+	} else {
+	    return search( i, t.getLeft() );
+	}
+    }
+
+    public String search( int i ) {
+	String end = "" + search( i, root );
+	if ( end == null ) {
+	    return "Not Found";
+	} else {
+	    return end;
+	}
+    }
+    
+    public String traverse( Node t ) {
+	String end = "";
+	Node tmp = t;
+	if ( tmp.isLeaf() == true ) {
+	    end = end + tmp;
+	} else if ( tmp.isFull() == true ) {
+	    end = end + tmp + "\n"
+		+ traverse(tmp.getLeft()) + "  " + traverse(tmp.getRight());
+	} else {
+	    if ( tmp.getLeft() == null ) {
+		end = end + tmp + "\n"
+		    + tmp.getRight();
 	    } else {
-		if ( tmp.getLeft() == null ) {
-		    return null;
-		} else {
-		    tmp = tmp.getLeft();
-		}
+		end = end + tmp + "\n"
+		    + tmp.getLeft();
 	    }
 	}
-	return null;
+	return end;
     }
-
+    
     public String toString() {
-	
+	return traverse(root);
     }
-
+    
     public static void main( String[] args ) {
 	Node N = new Node(25);
 	BST tree = new BST(N);
 	tree.insert(4);
+	tree.insert(30);
+	System.out.println(tree);
+     	System.out.println(tree.search(4));
     }
 
 }

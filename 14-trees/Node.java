@@ -48,15 +48,16 @@ public class Node {
 	    return true;
 	}
     }
-    public boolean hasNext() {
-	
-    }
 
     public Node getLeft() {
 	return childL;
     }
     public Node getRight() {
 	return childR;
+    }
+
+    public String toString() {
+	return ""+data;
     }
 
 }
