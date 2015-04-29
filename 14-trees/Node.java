@@ -33,6 +33,13 @@ public class Node {
     public void addR( Node n ) {
 	childR = n;
     }
+
+    public void rmChildL() {
+	childL = null;
+    }
+    public void rmChildR() {
+	childR = null;
+    }
     
     public boolean isFull() {
 	if ( childL != null && childR != null ) {
@@ -54,6 +61,9 @@ public class Node {
     }
     public Node getRight() {
 	return childR;
+    }
+    public Node getParent() {
+	return parent;
     }
 
     public String toString() {
