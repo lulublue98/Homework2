@@ -73,11 +73,10 @@ public class BST {
 	return traverse(root);
     }
     
-    public String remove( int i ) {
+    public void remove( int i ) {
 	t1 = search( i, root );
 	t2 = t1.getParent();
 	if ( t1 == null ) {
-	    return "not found";
 	} else if ( t1.isLeaf() == true ) {
 	    if ( t1 == t2.getLeft() ) {
 	        t2.rmChildL();
