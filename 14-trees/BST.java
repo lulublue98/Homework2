@@ -74,9 +74,10 @@ public class BST {
     }
     
     public void remove( int i ) {
-	t1 = search( i, root );
-	t2 = t1.getParent();
+	Node t1 = search( i, root );
+	Node t2 = t1.getParent();
 	if ( t1 == null ) {
+	    System.out.println("not found");
 	} else if ( t1.isLeaf() == true ) {
 	    if ( t1 == t2.getLeft() ) {
 	        t2.rmChildL();
@@ -84,11 +85,28 @@ public class BST {
 		t2.rmChildR();
 	    }
 	} else if ( t1.getLeft() != null && t1.getRight() == null ) {
-	    
+	    if ( t2.getLeft() == t1 ) {
+		t2.addL(t1.getRight());
+	    } else {
+		t2.addR(t1.getRight());
+	    }
 	} else if ( t1.getRight() != null && t1.getLeft() == null ) {
-
+	    if ( t2.getLeft() == t1 ) {
+		t2.addL(t1.getLeft());
+	    } else {
+		t2.addR(t1.getLeft());
+	    }
 	} else {
-
+	    Node tmp = t2.getLeft();
+	    Node follow = t2;
+	    while ( tmp.getRight() != null ) {
+		follow = tmp;
+		tmp = tmp.getRight();
+	    }
+	    tmp.addR(t2.getRight());
+	    tmp.addL(t2.getLeft());
+	    t1 = tmp;
+	    follow.addR(null);
 	}
     }
 
@@ -100,6 +118,8 @@ public class BST {
 	    int x = r.nextInt(50);
 	    tree.insert(x);
 	}
+	System.out.println(tree);
+	tree.remove(30);
 	System.out.println(tree);
     }
 
