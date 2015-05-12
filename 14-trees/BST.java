@@ -68,28 +68,9 @@ public class BST {
 		traverse(t.getRight());
 	}
     }
-    
-    public int numNodes( Node t ) {
-	if ( t == null ) {
-	    return 0;
-	} else {
-	    return 1 + numNodes(t.getLeft()) + numNodes(t.getRight());
-	}
-    }
-    public int size() {
-	return numNodes( root );
-    }
 
     public String toString() {
 	return traverse(root);
-    }
-    
-    public int maxValue() {
-	Node tmp = root;
-	while ( tmp.getRight() != null ) {
-	    tmp = tmp.getRight();
-	}
-	return tmp.getData();
     }
 
     // this method is broken
@@ -129,6 +110,25 @@ public class BST {
 	    follow.addR(null);
 	}
     }
+    
+    public int maxValue() {
+	Node tmp = root;
+	while ( tmp.getRight() != null ) {
+	    tmp = tmp.getRight();
+	}
+	return tmp.getData();
+    }
+
+    public int numNodes( Node t ) {
+	if ( t == null ) {
+	    return 0;
+	} else {
+	    return 1 + numNodes(t.getLeft()) + numNodes(t.getRight());
+	}
+    }
+    public int size() {
+	return numNodes( root );
+    }
 
     public int getHeight( Node t ) {
 	if ( t == null ) {
@@ -136,19 +136,26 @@ public class BST {
 	} else {
 	    return 1 + Math.max(getHeight(t.getLeft()),getHeight(t.getRight()));
 	}
-    } 
-    /*
+    }    
     public int height() {
 	return getHeight(root);
     }
-    public int longest() {
 
+    public int diam( Node t ) {
+	if ( t == null ) {
+	    return 0;
+	} else {
+	    int p1 = getHeight(t.getLeft()) + getHeight(t.getRight()) + 2;
+	    int p2 = diam(t.getLeft());
+	    int p3 = diam(t.getRight());
+	    int p = Math.max(p2,p3);
+	    return Math.max(p1,p);
+	}
     }
-    
-    public int splitDupes() {
+    public int diameter() {
+	return diam(root);
+    }
 
-    }
-    */
     public static void main( String[] args ) {
 	Node N = new Node(25);
 	BST tree = new BST(N);
@@ -158,12 +165,15 @@ public class BST {
 	    tree.insert(x);
 	}
 	System.out.println(tree);
-	//System.out.println(tree.search(30));
-	//tree.remove(30);
-	//System.out.println(tree);
-	System.out.println(tree.maxValue());
-	System.out.println(tree.size());
+	/*
+	System.out.println(tree.search(30));
+	tree.remove(30);
+	System.out.println(tree);
+	*/
+	//System.out.println(tree.maxValue());
+	//System.out.println(tree.size());
 	System.out.println(tree.height());
+	System.out.println(tree.diameter());
     }
 
 }
